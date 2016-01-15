@@ -1,0 +1,46 @@
+{
+  "name": "doubledutchdesign-admin",
+  "version": "0.0.1",
+  "description": "double dutch design - admin interface",
+  "main": "index.html",
+  "dependencies": {
+    "react": "^0.14.0",
+    "react-router": "1.0.0-rc1",
+    "react-dom": "~0.14.0",
+    "react-document-meta": "2.0.0-rc2"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^5.1.11",
+    "babel": "^5.8.20",
+    "del": "^2.0.2",
+    "babelify": "^6.3.0",
+    "chai": "^3.2.0",
+    "browserify": "^11.1.0",
+    "css-modulesify": "^0.8.0",
+    "css-loader": "^0.15.1",
+    "eslint": "^1.0.0",
+    "eslint-plugin-react": "^3.2.0",
+    "react-css-modules": "^3.2.3",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-minify": "^0.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-sequence": "^0.4.1",
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.6",
+    "gulp-webserver": "^0.9.1",
+    "lodash.assign": "^3.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  },
+  "scripts": {
+    "test": "eslint . && babel-node ./node_modules/.bin/isparta cover _mocha -- --recursive src/test"
+  },
+  "author": "riekus van montfort",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "http://git.erikveld.nl/technics/doubledutch.git"
+  }
+}
