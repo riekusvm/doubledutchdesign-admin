@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import css from './list-item.css';
 
 export default class ListItem extends React.Component {
   static propTypes = {
@@ -8,11 +9,8 @@ export default class ListItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={css.listItem}>
         {this.props.name}
-        <span>
-          <Link to="###">-</Link>
-        </span>
       </div>
     )
   }

@@ -4,12 +4,11 @@ import ProductsUtil from '../../util/products-util';
 
 export default class PartsList extends React.Component {
   static propTypes = {
-    params: React.PropTypes.func,
-    children: React.PropTypes.array
+    params: React.PropTypes.object,
+    children: React.PropTypes.element
   }
 
   render() {
-    console.log('product id: ', this.props.params.productId);
     return (
       <div>
         <ColumnList header="Parts" linkBase={'products/' + this.props.params.productId}

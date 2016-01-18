@@ -4,7 +4,7 @@ import ColumnList from '../../components/column-list/column-list';
 
 export default class ProductsConfigurer extends React.Component {
   static propTypes = {
-    children: React.PropTypes.array
+    children: React.PropTypes.element
   }
 
   render() {

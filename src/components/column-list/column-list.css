@@ -1,0 +1,7 @@
+.columnList{
+  display: inline-block;
+  height: 100vh;
+  width: 15%;
+  clear: none;
+  border-right: 1px solid #CCC;
+}
