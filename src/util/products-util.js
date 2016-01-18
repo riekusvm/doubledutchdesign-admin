@@ -17,16 +17,26 @@ export default class ProductsUtil {
 
       if(value.name !== arr[index-1].name) return true;
       return false;
-    }).map((part, index) => {
+    })
+    .map((part, index) => {
       return {name: part.name, key: 'pp_' + part.id, id: part.name};
     });
   }
 
   static getVariants(productId, part) {
-    return this.data[productId].parts.filter((value) => {
-      return value.name === part;
-    }).map((variant, index) => {
+    return this.getPartByName(productId, part)
+    .map((variant, index) => {
       return {name: variant.description,  key: 'ppv_' + variant.id, id: index}
     });
+  }
+
+  static getPartByName(productId, name) {
+    return this.data[productId].parts.filter((value) => {
+      return value.name === name;
+    })
+  }
+
+  static getVariant(productId, partId, variantId) {
+    return this.getPartByName(productId, partId)[variantId];
   }
 }

@@ -1,7 +1,8 @@
 .columnList{
   display: inline-block;
   height: 100vh;
-  width: 15%;
+  width: 15vw;
   clear: none;
+  float: left;
   border-right: 1px solid #CCC;
 }
