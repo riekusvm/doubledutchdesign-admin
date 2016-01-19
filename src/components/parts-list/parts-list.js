@@ -16,6 +16,6 @@ export default class PartsList extends React.Component {
           items={ProductsUtil.getParts(this.props.params.productId)} />
         {this.props.children || ''}
       </div>
-      )
+    );
   }
 }

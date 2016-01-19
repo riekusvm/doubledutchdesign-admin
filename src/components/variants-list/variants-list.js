@@ -5,17 +5,20 @@ import appCss from '../../app.css';
 
 export default class VariantsList extends React.Component {
   static propTypes = {
-    params: React.PropTypes.object
+    params: React.PropTypes.object,
+    children: React.PropTypes.element
   }
 
   render() {
     return (
       <div className={appCss.column}>
         <ColumnList header="Variants"
-          linkBase={'products/' + this.props.params.productId + '/' + this.props.params.partId + '/variants'}
-          items={ProductsUtil.getVariants(this.props.params.productId, this.props.params.partId)}/>
+          linkBase={'products/' + this.props.params.productId + '/'
+             + this.props.params.partId + '/variants'}
+             items={ProductsUtil.getVariants(
+               this.props.params.productId, this.props.params.partId)}/>
         {this.props.children || ''}
       </div>
-      )
+    );
   }
 }

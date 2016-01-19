@@ -12,6 +12,7 @@
   "devDependencies": {
     "autoprefixer-core": "^5.1.11",
     "babel": "^5.8.20",
+    "babel-eslint": "^4.0.5",
     "del": "^2.0.2",
     "babelify": "^6.3.0",
     "chai": "^3.2.0",
