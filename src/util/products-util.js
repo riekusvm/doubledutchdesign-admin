@@ -9,16 +9,22 @@ export default class ProductsUtil {
   }
 
   static getParts(index) {
-    if(!this.data[index] || !this.data[index].parts) return [{}];
+    if (!this.data[index] || !this.data[index].parts) {
+      return [{}];
+    }
 
-    return this.data[index].parts.filter((value, index, arr) => {
+    return this.data[index].parts.filter((value, i, arr) => {
       // always return 1st item
-      if(index === 0) return true;
+      if (i === 0) {
+        return true;
+      }
 
-      if(value.name !== arr[index-1].name) return true;
+      if (value.name !== arr[i - 1].name) {
+        return true;
+      }
       return false;
     })
-    .map((part, index) => {
+    .map((part) => {
       return {name: part.name, key: 'pp_' + part.id, id: part.name};
     });
   }
@@ -26,7 +32,7 @@ export default class ProductsUtil {
   static getVariants(productId, part) {
     return this.getPartByName(productId, part)
     .map((variant, index) => {
-      return {name: variant.description,  key: 'ppv_' + variant.id, id: index}
+      return {name: variant.description, key: 'ppv_' + variant.id, id: index}
     });
   }
 
@@ -38,5 +44,9 @@ export default class ProductsUtil {
 
   static getVariant(productId, partId, variantId) {
     return this.getPartByName(productId, partId)[variantId];
+  }
+
+  static getOptions(productId, partId, variantId) {
+    return this.getVariant(productId, partId, variantId).options;
   }
 }

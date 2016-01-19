@@ -1,6 +1,36 @@
 .listItem{
-  height: 50px;
+  position: relative;
   display: inline-block;
   width: 100%;
   border-bottom: 1px solid #dedede;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.listItem:hover{
+  background-color: #EFEFEF;
+}
+
+.listItem > a, .listItem > a:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.button{
+  display: inline-block;
+  width: 20px;
+  height: 28px;
+  font-size: 16px;
+  vertical-align: sub;
+  line-height: 28px;
+  border-left: 1px solid #DEDEDE;
+  padding-left: 5px;
+}
+
+.listItem .button{
+  display: none;
+}
+
+.listItem:hover .button{
+  display: inline-block;
 }

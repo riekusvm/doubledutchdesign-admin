@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from '../list-item/list-item';
-import {Link} from 'react-router';
 import css from './column-list.css'
+import Button from '../button/button';
 
 export default class ColumnList extends React.Component {
 
@@ -14,19 +14,19 @@ export default class ColumnList extends React.Component {
 
   render() {
     const listItems = this.props.items.map((item) => {
-      return(<Link to={this.props.linkBase + '/' +item.id}><ListItem name={item.name} key={item.key} />
-            </Link>);
+      return (
+        <ListItem name={item.name} key={item.key} link={this.props.linkBase + '/' +item.id} />
+      );
     })
 
     const header = (this.props.header) ? <h2>{this.props.header}</h2> : '';
 
-    return(
+    return (
       <div className={css.columnList}>
         {header}
         <div>{listItems}</div>
-        <Link to="new"> + </Link>
+        <Button classes={['fa', 'fa-plus', css.addButton]} />
       </div>
-
-    )
+    );
   }
 }

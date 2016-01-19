@@ -1,3 +1,9 @@
+@import url('./css/font-awesome.min.css');
+
+body {
+  font-family: 'helvetica neue', arial, sans-serif;
+}
+
 .column {
   float: left;
   clear: none;

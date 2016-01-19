@@ -94,6 +94,22 @@ Gulp.task('buildimages', () => {
   return images('images', config.distDir + '/images');
 });
 
+function fonts(dest) {
+  Gulp.src('./node_modules/font-awesome/css/font-awesome.min.css')
+  .pipe(Gulp.dest(dest + '/css/'));
+
+  Gulp.src('./node_modules/font-awesome/fonts/*')
+  .pipe(Gulp.dest(dest + '/fonts/'));
+}
+
+Gulp.task('devfonts', () => {
+  return fonts(config.devDir);
+});
+
+Gulp.task('buildfonts', () => {
+  return fonts(config.distDir);
+});
+
 function serve(dest) {
   Gulp.src(dest)
     .pipe(webserver({
@@ -127,7 +143,8 @@ function bundle() {
   .pipe(Gulp.dest(config.devDir));
 }
 
-Gulp.task('build', sequence('buildclean', ['browserify', 'buildhtml', 'buildimages']));
+Gulp.task('build', sequence('buildclean', ['buildfonts', 'browserify'],
+                            ['minify-css', 'buildhtml']));
 Gulp.task('js', bundle);
-Gulp.task('dev', sequence('devclean', ['browserifyDev'], ['js', 'devhtml', 'devimages'],
-'devserve'));
+Gulp.task('dev', sequence(['devclean'], ['devfonts', 'browserifyDev'],
+                          ['js', 'devhtml'], 'devserve'));
