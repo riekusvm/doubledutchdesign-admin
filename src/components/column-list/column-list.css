@@ -7,6 +7,18 @@
   border-right: 1px solid #CCC;
 }
 
+.columnList h2 {
+  padding: 10px;
+}
+
+.columnList .addButton{
+  display: none;
+}
+
+.columnList:hover .addButton{
+  display: block;
+}
+
 .addButton{
   width: 100%;
   text-align: center;

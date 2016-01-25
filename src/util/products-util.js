@@ -9,37 +9,36 @@ export default class ProductsUtil {
   }
 
   static getParts(index) {
-    if (!this.data[index] || !this.data[index].parts) {
-      return [{}];
+    try {
+      return this.data[index].parts.filter((value, i, arr) => {
+        // always return 1st item
+        if (i === 0) {
+          return true;
+        }
+        if (value.name !== arr[i - 1].name) {
+          return true;
+        }
+        return false;
+      })
+      .map((part) => {
+        return {name: part.name, key: 'pp_' + part.id, id: part.name};
+      });
+    } catch (e) {
+      return [];
     }
-
-    return this.data[index].parts.filter((value, i, arr) => {
-      // always return 1st item
-      if (i === 0) {
-        return true;
-      }
-
-      if (value.name !== arr[i - 1].name) {
-        return true;
-      }
-      return false;
-    })
-    .map((part) => {
-      return {name: part.name, key: 'pp_' + part.id, id: part.name};
-    });
   }
 
   static getVariants(productId, part) {
     return this.getPartByName(productId, part)
     .map((variant, index) => {
-      return {name: variant.description, key: 'ppv_' + variant.id, id: index}
+      return {name: variant.description, key: 'ppv_' + variant.id, id: index};
     });
   }
 
   static getPartByName(productId, name) {
     return this.data[productId].parts.filter((value) => {
       return value.name === name;
-    })
+    });
   }
 
   static getVariant(productId, partId, variantId) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from '../list-item/list-item';
-import css from './column-list.css'
+import css from './column-list.css';
 import Button from '../button/button';
 
 export default class ColumnList extends React.Component {
@@ -15,9 +15,9 @@ export default class ColumnList extends React.Component {
   render() {
     const listItems = this.props.items.map((item) => {
       return (
-        <ListItem name={item.name} key={item.key} link={this.props.linkBase + '/' +item.id} />
+        <ListItem name={item.name} key={item.key} link={this.props.linkBase + '/' + item.id} />
       );
-    })
+    });
 
     const header = (this.props.header) ? <h2>{this.props.header}</h2> : '';
 
